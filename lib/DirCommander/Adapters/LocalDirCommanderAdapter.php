@@ -69,13 +69,8 @@ class LocalDirCommanderAdapter implements IDirCommanderAdapter {
        * @var RecursiveDirectoryIterator $iterator
        */
       if ($node->isDir()) {
-        var_dump('makeDir: '.$destination . DIRECTORY_SEPARATOR . $iterator->getSubPathName());
         if(!mkdir($destination . DIRECTORY_SEPARATOR . $iterator->getSubPathName())){ return false; };
       } else {
-
-        var_dump((string)$node);
-        var_dump($destination . DIRECTORY_SEPARATOR . $iterator->getSubPathName());
-        ob_flush();
         if(!copy($node, $destination . DIRECTORY_SEPARATOR . $iterator->getSubPathName())){ return false; }
       }
     }
