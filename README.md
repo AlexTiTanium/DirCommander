@@ -1,15 +1,15 @@
 Welcome to Dir Commander README
 ================================
 
-The DirCommander it is simple lib for fast manipulating file system.
+The DirCommander it is simple lib for the fast manipulating file system.
 
-I was created it for code generation purposes, but it good for others tasks.
+I created it for code generation purposes, but it's good for others tasks.
 
 How to use:
 ================================
 
-1.  Firs create adapter. Adapter represent functions for working with file system in php.
-    Also adapter implement __IDirCommanderAdapter__ interface.
+1.  First create an adapter. Adapter represent functions for working with the file system in PHP.
+    Also adapter implements __IDirCommanderAdapter__ interface.
 
         $adapter = new LocalDirCommanderAdapter();
 
@@ -20,49 +20,49 @@ How to use:
 
 Now we may use $dc for manipulating file system.
 
-Create new directory in current root
+Create a new directory in current root
 ---------------------------------------------------
 
     $dc->makeDir('newDir');
 
-Remove directory or file
+Remove a directory or file
 -------------------------------------------------
 
-    $dc->remove('newDir'); // all sub directory and files we be deleted
+    $dc->remove('newDir'); // all sub directories and files will be deleted
     $dc->remove('someFile.php')
 
-__WARING: Dirs and files remove recursive!__
+__WARING: Removing directories and files is recursive!__
 
-Get current directory:
+Get current directory
 -------------------------------------------------
 
-if rootPath what we pass to constructor for example */home/user*:
+If what we pass to constructor for example: */home/user*:
 
     echo $dc->getCurrentPath(); // prints /home/user
 
 Change current directory
 -----------------------------------------------
 
-For example we have in */home/user* dir __"alex"__ and current dir is:
+For example we have in */home/user* dir __"alex"__ and current directory is:
 
     echo $dc->getCurrentPath(); // prints /home/user
     $dc->cd('alex')
 
-It will be change current dir to */home/user/alex*
+It will change current directory to */home/user/alex*
 
     echo $dc->getCurrentPath() - prints /home/user/alex
 
-It means that all future operation we will do in alex dir.
+It means that all future operations we will do in __alex__ directory.
 
-Current dir __ALWAYS saves in object__.
+Current directory __ALWAYS saved in object__.
 
 If we do:
 
     $dc->makeDir('documents');
 
-We will be create dir "documents" in __alex__ dir.
+We will create directory "documents" in __alex__ directory.
 
-The `$dc->makeDir()` not change current dir. Change current dir may only two methods: `$dc->cd()` and `$dc->up()`
+The `$dc->makeDir()` not change the current directory. Change current directory may only two methods: `$dc->cd()` and `$dc->up()`
 
 Method `$dc->up()` change current dir to upper.
 For example:
@@ -76,10 +76,10 @@ Instead `$dc->up()` you may use `$dc->cd('..')`
 Create file
 ----------------------------------------
 
-    $dc->makeFile('file.php'); // create empty file in current directory
+    $dc->makeFile('file.php'); // create an empty file in the current directory
     $dc->makeFile('file.php', 'data'); // create file with text data
 
-Get content of file
+Get content of the file
 ---------------------------------------
 
     $dc->getContent('file.php'); // return string content
@@ -91,32 +91,32 @@ For example:
 
     echo $dc->getCurrentPath() - prints /home/user/alex
 
-   Current dir is __alex__, we need create backup copy of it.
+   Current directory is __alex__, we need create a backup copy of it.
 
      $dc->up(); // now we in /home/user
      $dc->copy('alex');
-     $dc->paste('alexBackup'); // it crete /home/user/alexBackup dir
+     $dc->paste('alexBackup'); // it create /home/user/alexBackup directory
 
-__Copy paste work recursive that mean your sub directories and files was completely copied.__
+__Copy paste works recursive that mean your subdirectories and files was completely copy.__
 
-It work for files too:
+It works for files too:
 
     $dc->copy('someFile.php');
     $dc->past('copySomeFile.php', true); // second argument true means, that if file exist it we be overwritten
 
-You also may not past firs argument. For example
-dir __alex__ contains file __"someFile.php"__ we need copy it to user directory:
+You also may not past firs argument. For example:
+dir __alex__ contains file __"someFile.php"__ we need copy it to user directories:
 
     echo $dc->getCurrentPath(); // prints /home/user/alex
     $dc->copy('someFile.php');
     $dc->up(); // now we in /home/user
-    $dc->paste(); // it create copy file "someFile.php" in /home/user dir
+    $dc->paste(); // it create copy of file "someFile.php" in /home/user dir
 
 Chain of calls
 ---------------------------------
 
-Only two methods return string: __getContent__ and __getCurrentPath__,
-others return self, you may use it for fast manipulate file system.
+Only two methods return a string: __getContent__ and __getCurrentPath__.
+Others return self, you may use it for fast manipulate file system.
 
 Something like that:
 
@@ -145,8 +145,8 @@ Error handling
 
 All methods throws __DirCommanderException__ use try catch.
 
-End last one
+In the End
 --------------------------
 
-* More examples se in tests
-* __WARING!__ All operation not transactional!
+* More examples see in tests
+* __WARING!__ All operations not transactional!
