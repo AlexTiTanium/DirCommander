@@ -3,7 +3,7 @@ Welcome to Dir Commander README
 
 The DirCommander it is simple lib for fast manipulating file system.
 
-I was crated it for code generation purposes, but it good for others tasks.
+I was created it for code generation purposes, but it good for others tasks.
 
 How to use:
 ================================
