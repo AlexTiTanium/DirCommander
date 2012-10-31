@@ -1,19 +1,16 @@
-Welcome to Dir Commander README
-================================
-
-The DirCommander it is simple lib for the fast manipulating file system.
+The DirCommander is a simple lib for fast manipulating of the file system.
 
 I created it for code generation purposes, but it's good for others tasks.
 
 How to use:
 ================================
 
-1.  First create an adapter. Adapter represent functions for working with the file system in PHP.
+1.  First create an adapter. Adapter represents functions for working with the file system in PHP.
     Also adapter implements __IDirCommanderAdapter__ interface.
 
         $adapter = new LocalDirCommanderAdapter();
 
-2. Create __DirCommander__ instance and pass to constructor adapter (It takes     __IDirCommanderAdapter__) and root path.
+2. Create __DirCommander__ instance, passing adapter as it's first argument and root path.
 
         $rootPath = __DIR__; // no "/" in the end
         $dc = new DirCommander($adapter, $rootPath);
@@ -36,14 +33,14 @@ __WARING: Removing directories and files is recursive!__
 Get current directory
 -------------------------------------------------
 
-If what we pass to constructor for example: */home/user*:
+For example, if we pass */home/user* to constructor:
 
     echo $dc->getCurrentPath(); // prints /home/user
 
 Change current directory
 -----------------------------------------------
 
-For example we have in */home/user* dir __"alex"__ and current directory is:
+For example, we have __"alex"__ folder in */home/user* dir and current directory is:
 
     echo $dc->getCurrentPath(); // prints /home/user
     $dc->cd('alex')
@@ -62,7 +59,7 @@ If we do:
 
 We will create directory "documents" in __alex__ directory.
 
-The `$dc->makeDir()` not change the current directory. Change current directory may only two methods: `$dc->cd()` and `$dc->up()`
+The `$dc->makeDir()` does not change the current directory. Only two methods may change current directory: `$dc->cd()` and `$dc->up()`
 
 Method `$dc->up()` change current dir to upper.
 For example:
@@ -149,4 +146,4 @@ In the End
 --------------------------
 
 * More examples see in tests
-* __WARING!__ All operations not transactional!
+* __WARNING!__ All operations not transactional!
