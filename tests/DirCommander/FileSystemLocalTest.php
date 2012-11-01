@@ -31,13 +31,37 @@ class FileSystemLocalTest extends PHPUnit_Framework_TestCase {
   private $assertDir;
 
   /**
+   * @var string
+   */
+  private static $testingAssrtsDir;
+
+
+  public static function setUpBeforeClass() {
+	
+	self::$testingAssrtsDir = __DIR__ . self::DS . 'assert';
+
+	if(!mkdir(self::$testingAssrtsDir)) {
+      new Exception('Can`t create testing asserts dir');
+    }
+
+  }
+
+  public static function tearDownAfterClass() {
+	
+	if(!rmdir(self::$testingAssrtsDir)) {
+      new Exception('Can`t delete testing asserts dir');
+    }
+
+  }
+
+  /**
    *
    */
   protected function setUp(){
 
     $this->testDir = time();
-    $this->assertDir = __DIR__ . self::DS . 'assert' . self::DS . $this->testDir;
-
+    $this->assertDir = _self::$testingAssrtsDir . self::DS . $this->testDir;
+	
     if(!mkdir($this->assertDir)) {
       new Exception('Can`t create assert dir');
     }
