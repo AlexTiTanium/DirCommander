@@ -120,24 +120,17 @@ Others return self, you may use it for fast manipulate file system.
 Something like that:
 
     $dc
-      ->makeDir('copyPaste')
-        ->cd('copyPaste')
-        ->makeDir('d1')
-          ->cd('d1')
-          ->makeFile('f3.php')
-          ->makeDir('d11')
-            ->cd('d11')
-            ->makeFile('f4.php')
-          ->up()
-        ->up()
-        ->makeDir('d2')
-          ->cd('d2')
-          ->makeFile('f2.php')
-        ->up();
-        ->copy('d1')
-        ->makeDir('copyD1')
-          ->cd('copyD1')
-          ->paste();
+       ->cd($this->application)
+        ->cd('controllers')
+          ->makeDir($this->controllerName)
+          ->cd($this->controllerName)
+            ->makeDir('config')
+            ->makeDir('events')
+            ->makeDir('lib')
+              ->cd('lib')->makeFile(ucfirst($this->controllerName).'Controller.php', $controllerClass)
+            ->up()
+            ->makeFile('router.php', $routerFile)
+    ;
 
 Error handling
 ----------------------------
