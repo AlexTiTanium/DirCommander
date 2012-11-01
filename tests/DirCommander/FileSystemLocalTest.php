@@ -60,7 +60,7 @@ class FileSystemLocalTest extends PHPUnit_Framework_TestCase {
   protected function setUp(){
 
     $this->testDir = time();
-    $this->assertDir = _self::$testingAssrtsDir . self::DS . $this->testDir;
+    $this->assertDir = self::$testingAssrtsDir . self::DS . $this->testDir;
 	
     if(!mkdir($this->assertDir)) {
       new Exception('Can`t create assert dir');
