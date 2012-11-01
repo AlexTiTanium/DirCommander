@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/AlexTiTanium/DirCommander.png)](http://travis-ci.org/AlexTiTanium/DirCommander)
+
 The DirCommander is a simple lib for fast manipulating of the file system.
 
 I created it for code generation purposes, but it's good for others tasks.
